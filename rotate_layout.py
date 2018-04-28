@@ -44,12 +44,14 @@ if args.direction == 0:
         for i in range(rotations):
             old_focus, new_comm = clock()
             command += new_comm
+        command += "[con_id=%s] focus;" % ( leaves[(old_focus - rotations) %
+            number_of_leaves].id )
         i3.command(command)
-        leaves[(old_focus - rotations) % number_of_leaves].command('focus')
 elif args.direction == 1:
     if rotations > 0:
         for i in range(rotations):
             old_focus, new_comm = counterclock()
             command += new_comm
+        command += "[con_id=%s] focus;" % ( leaves[(old_focus + rotations) %
+            number_of_leaves].id )
         i3.command(command)
-        leaves[(old_focus + rotations) % number_of_leaves].command('focus')
