@@ -3,6 +3,9 @@ Small scripts to extend the [i3wm](https://i3wm.org/) window manager. For requir
 
 ## rotate_layout.py ##
 A script to rotate the current layout clockwise or counterclockwise.
+#### Dependencies ####
+
+ * [i3ipc](https://github.com/acrisci/i3ipc-python) : `pip install --user i3ipc`
 
 #### Usage ####
 `rotate_layout.py [-h] [--times N] direction`
