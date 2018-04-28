@@ -40,5 +40,3 @@ if args.direction == 0:
     clock()
 elif args.direction == 1:
     counterclock()
-
-#TODO keep focus on original
