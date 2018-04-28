@@ -13,8 +13,7 @@ i3 = i3ipc.Connection()
 
 root = i3.get_tree()
 focused = root.find_focused()
-workspace = focused.workspace()
-leaves = workspace.leaves()
+leaves = focused.workspace().leaves()
 number_of_leaves = len(leaves)
 rotations = args.times % number_of_leaves
 
