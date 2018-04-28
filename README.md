@@ -11,9 +11,9 @@ Usage: rotate_layout.py [-h] [--times N] direction
  * -h : help
  * --times/-t N: rotate N times
 
-Examples:
+### Examples ###
+
 ![rotate_layout example 1](images/01_rotate_layout.gif)
 
 ![rotate_layout example 1](images/02_rotate_layout.gif)
 
-![rotate_layout example 1](images/03_rotate_layout.gif)
