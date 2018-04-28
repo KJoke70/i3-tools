@@ -3,7 +3,9 @@ Small scripts to extend the [i3wm](https://i3wm.org/) window manager. For requir
 
 ## rotate_layout.py ##
 A script to rotate the current layout clockwise or counterclockwise.
-Usage: rotate_layout.py [-h] [--times N] direction
+
+#### Usage ####
+`rotate_layout.py [-h] [--times N] direction`
 
  * direction:
    * 0 : clockwise
@@ -11,7 +13,7 @@ Usage: rotate_layout.py [-h] [--times N] direction
  * -h : help
  * --times/-t N: rotate N times
 
-### Examples ###
+#### Examples ####
 
 ![rotate_layout example 1](images/01_rotate_layout.gif)
 
