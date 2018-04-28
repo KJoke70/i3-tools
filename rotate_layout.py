@@ -40,10 +40,12 @@ def counterclock():
     return old_focus
 
 if args.direction == 0:
-    for i in range(rotations):
-        old_focus = clock()
-    leaves[(old_focus - rotations) % number_of_leaves].command('focus')
+    if rotations > 0:
+        for i in range(rotations):
+            old_focus = clock()
+        leaves[(old_focus - rotations) % number_of_leaves].command('focus')
 elif args.direction == 1:
-    for i in range(rotations):
-        old_focus = counterclock()
-    leaves[(old_focus + rotations) % number_of_leaves].command('focus')
+    if rotations > 0:
+        for i in range(rotations):
+            old_focus = counterclock()
+        leaves[(old_focus + rotations) % number_of_leaves].command('focus')
