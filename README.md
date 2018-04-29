@@ -30,7 +30,7 @@ A script to switch to different containers in fullscreen mode. This can also be 
  * [i3ipc](https://github.com/acrisci/i3ipc-python) : `pip install --user i3ipc`
 
 #### Usage ####
-`rotate_layout.py [-h] [--times N] direction`
+`fullscreen_mode.py [-h] [--times N] direction`
 
  * direction:
    * 0 : backwards
