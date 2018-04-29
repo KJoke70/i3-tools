@@ -22,3 +22,22 @@ A script to rotate the current layout clockwise or counterclockwise.
 
 ![rotate_layout example 1](images/02_rotate_layout.gif)
 
+## fullscreen_mode.py ##
+A script to switch to different containers in fullscreen mode. This can also be done with `rotate_layout.py` but is significantly faster because no containers are swapped around (and the layout stays as is).
+
+#### Dependencies ####
+
+ * [i3ipc](https://github.com/acrisci/i3ipc-python) : `pip install --user i3ipc`
+
+#### Usage ####
+`rotate_layout.py [-h] [--times N] direction`
+
+ * direction:
+   * 0 : backwards
+   * 1 : forwards
+ * -h : help
+ * --times/-t N: move N times forwards/backwards
+
+#### Examples ####
+
+![fullscreen_mode example 1](images/01_fullscreen_mode.gif)
