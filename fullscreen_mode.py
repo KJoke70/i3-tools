@@ -34,7 +34,7 @@ def next(direction=1):
 
 if(len(fullscreen) == 1 and number_of_leaves > 1 and times > 0):
     command = ""
-    command += "[con_id=%s] fullscreen toggle;" % (fullscreen[0].id)
+    #command += "[con_id=%s] fullscreen toggle;" % (fullscreen[0].id)
     if args.direction == 0:
         for i in range(times):
             new_index = next(-1)
