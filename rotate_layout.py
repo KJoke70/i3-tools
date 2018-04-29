@@ -18,7 +18,7 @@ number_of_leaves = len(leaves)
 rotations = args.times % number_of_leaves
 
 def clock():
-    old_focus = 2
+    old_focus = number_of_leaves - 1
     comm = ""
     for i in range(number_of_leaves-1):
         if leaves[i].id == focused.id:
