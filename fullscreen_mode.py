@@ -44,7 +44,6 @@ if(len(fullscreen) == 1 and number_of_leaves > 1 and times > 0):
 
     command += "[con_id=%s] fullscreen toggle;" % (leaves[new_index].id)
     command += "[con_id=%s] focus;" % (leaves[new_index].id)
-    print(command)
     i3.command(command)
 
 
