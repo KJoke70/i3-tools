@@ -29,6 +29,10 @@ usage).
 
 #### Note ####
 
+* Performance might be slow with a lot of containers.
+* The [i3wm User's Guid](https://i3wm.org/docs/userguide.html#_swapping_containers) states:
+     > Note that swapping does not work with all containers. Most notably, swapping floating containers or containers that have a parent-child relationship to one another does not work.
+     so this script might not work for every layout.
 * The script doesn't know how your monitors are set up so things might get
     confusing if you use more than 2 displays.
 
