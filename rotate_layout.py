@@ -42,8 +42,6 @@ else:
                 leaves = ws.leaves() + leaves
             else:
                 leaves += ws.leaves()
-    for x in leaves:
-            print(x.name)
 
 number_of_leaves = len(leaves)
 rotations = args.times % number_of_leaves
