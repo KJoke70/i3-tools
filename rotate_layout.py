@@ -6,14 +6,45 @@ import argparse
 parser = argparse.ArgumentParser(description='rotate clockwise or counterclockwise')
 parser.add_argument('direction', type=int, help='0 = clockwise, 1 = counterclockwise')
 parser.add_argument('--times', '-t', type=int, default=1, help='how often to rotate')
+parser.add_argument('--no-multimonitor', '-m', action='store_true',
+        help='disables multi-monitor support')
 
 args = parser.parse_args()
 
+
 i3 = i3ipc.Connection()
+
+#check if multiple displays attached
+active_displays = 0
+active_workspaces = list()
+for d in i3.get_outputs():
+    if d.active:
+        active_displays += 1
+        active_workspaces.append(int(d.current_workspace))
 
 root = i3.get_tree()
 focused = root.find_focused()
-leaves = focused.workspace().leaves()
+
+if args.no_multimonitor or active_displays == 1:
+    leaves = focused.workspace().leaves()
+
+else:
+    focused_num = focused.workspace().num
+    f_ind = active_workspaces.index(focused_num)
+    active_workspaces[0], active_workspaces[f_ind] = active_workspaces[f_ind], active_workspaces[0]
+
+    w_spaces = root.workspaces()
+
+    leaves = list()
+    for ws in root.workspaces():
+        if ws.num in active_workspaces:
+            if ws.num == focused_num:
+                leaves = ws.leaves() + leaves
+            else:
+                leaves += ws.leaves()
+    for x in leaves:
+            print(x.name)
+
 number_of_leaves = len(leaves)
 rotations = args.times % number_of_leaves
 
