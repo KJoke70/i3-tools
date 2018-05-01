@@ -10,7 +10,7 @@ usage).
  * [i3ipc](https://github.com/acrisci/i3ipc-python) : `pip install --user i3ipc`
 
 #### Usage ####
-`rotate_layout.py [-h] [--times N] direction`
+`rotate_layout.py [-h] [--times TIMES] [--no-multimonitor] direction`
 
  * direction:
    * 0 : clockwise
