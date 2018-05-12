@@ -54,3 +54,28 @@ A script to switch to different containers in fullscreen mode. This can also be 
 #### Examples ####
 
 ![fullscreen_mode example 1](images/01_fullscreen_mode.gif)
+
+## on_workspace_init.py ##
+A script to execute a command once a specific workspace is created.
+
+#### Dependencies ####
+
+ * [i3ipc](https://github.com/acrisci/i3ipc-python) : `pip install --user i3ipc`
+
+#### Usage ####
+
+```
+on_workspace_init.py [-h] [ws_cmd [ws_cmd ...]]
+```
+
+* ws_cmd: ws_name,program_name
+
+
+##### Example usage #####
+Add a line like this to your i3 config file:
+
+```
+exec --no-startup-id on_workspace_init.py "$ws7","firefox" "$ws8","code" "$ws9","termite -e 'ncmpcpp -s visualizer'"
+```
+
+
