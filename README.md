@@ -78,4 +78,9 @@ Add a line like this to your i3 config file:
 exec --no-startup-id on_workspace_init.py "$ws7","firefox" "$ws8","code" "$ws9","termite -e 'ncmpcpp -s visualizer'"
 ```
 
+or something like this:
+
+```
+exec --no-startup-id on_workspace_init.py --no-exec "$ws10","append_layout ~/.config/i3/layouts/internet_overload.json; exec chromium; exec qutebrowser; exec firefox"
+```
 
