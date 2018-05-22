@@ -14,7 +14,7 @@ def workspace_args(s):
 parser = argparse.ArgumentParser(description='Execute a command upon ' \
         'creation of a workspace.')
 parser.add_argument('ws_cmd', help='define workspaces and commnands like ' \
-        ' ws1,cmd1 ws2,cmd2,...', type=workspace_args, nargs='*')
+        ' ws1,cmd1 ws2,cmd2,...', type=workspace_args, nargs='+')
 parser.add_argument('--no-exec', '-n', action='store_true', \
         help='Disables automatic exec before command. Requires you to ' \
         'write every command fully, e.g exec firefox. Also allows the usage ' \
