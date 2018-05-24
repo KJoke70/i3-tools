@@ -84,3 +84,33 @@ or something like this:
 exec --no-startup-id on_workspace_init.py --no-exec "$ws10","append_layout ~/.config/i3/layouts/internet_overload.json; exec chromium; exec qutebrowser; exec firefox"
 ```
 
+## auto_scratchpad.py ##
+A script to automatically move a window matching certain criteria to the scratchpad upon focus loss
+
+#### Dependencies ####
+
+ * [i3ipc](https://github.com/acrisci/i3ipc-python) : `pip install --user i3ipc`
+
+#### Usage ####
+
+```
+auto_scratchpad.py [-h] criteria [criteria ...]
+```
+
+* criteria: floating,name,class_name,instance,role,mark
+    * floating: True or False
+    * name: window name
+    * class_name: class of window
+    * instance: instance of window
+    * role: role of window
+    * mark: mark of window
+
+##### Example usage #####
+Add a line like this to your i3 config file:
+
+```
+exec --no-startup-id auto_scratchpad.py True,,,dropdown,,
+```
+
+To automatically move a floating window with `instance = dropdown` to the scratchpad upon focus loss.
+
