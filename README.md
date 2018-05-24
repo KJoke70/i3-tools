@@ -109,8 +109,12 @@ auto_scratchpad.py [-h] criteria [criteria ...]
 Add a line like this to your i3 config file:
 
 ```
-exec --no-startup-id auto_scratchpad.py True,,,dropdown,,
+exec --no-startup-id auto_scratchpad.py True,,,dropdown,, True,,,dropdown2,,
 ```
 
-To automatically move a floating window with `instance = dropdown` to the scratchpad upon focus loss.
+To automatically move:
 
+ * a floating window with `instance = dropdown`
+ * a floating window with `instance = dropdown2`
+
+to the scratchpad upon focus loss.
