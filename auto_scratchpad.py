@@ -15,6 +15,7 @@ def workspace_args(s):
         raise argparse.ArgumentTypeError('Criteria must be ' \
                 'floating,name,class_name,instance,role,mark')
 
+# command line arguments
 parser = argparse.ArgumentParser(description='Move a container matching ' \
         'cirteria to scratchpad upon focus change')
 parser.add_argument('criteria', help='criteria for which containers to hide ' \
@@ -28,6 +29,9 @@ i3 = i3ipc.Connection()
 last_matched = None
 
 def check_condition(container):
+    """
+    check if the container matches the specified criteria
+    """
     w_name = container.name
     w_class = container.window_class
     w_instance = container.window_instance
@@ -49,9 +53,18 @@ def check_condition(container):
 
 
 def move_to_scratchpad(w_id):
+    """ try to move window with con_id=w_id to scratchpad """
     i3.command('[con_id=%s] move scratchpad' % (str(w_id)))
 
 def on_window_focus(self, e):
+    """
+    on focus event:
+        * check if focus is different from the last matched window. Move to
+          scratchpad if yes
+        * check if current window matches criteria and set as last_matched if
+          yes
+    """
+
     global last_matched
     w_id = e.container.id
 
@@ -63,5 +76,6 @@ def on_window_focus(self, e):
         last_matched = w_id
 
 
+# listen to focus event
 i3.on('window::focus', on_window_focus)
 i3.main()
