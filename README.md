@@ -109,7 +109,7 @@ auto_scratchpad.py [-h] criteria [criteria ...]
 Add a line like this to your i3 config file:
 
 ```
-exec --no-startup-id auto_scratchpad.py True,,,dropdown,, True,,,dropdown2,,
+exec_always --no-startup-id auto_scratchpad.py True,,,dropdown,, True,,,dropdown2,,
 ```
 
 To automatically move:
