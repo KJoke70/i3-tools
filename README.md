@@ -118,3 +118,20 @@ To automatically move:
  * a floating window with `instance = dropdown2`
 
 to the scratchpad upon focus loss.
+
+
+## auto_orientation.py ##
+A script to automatically change the orientation depending on the focused window's width and height.
+
+#### Dependencies ####
+
+ * [i3ipc](https://github.com/acrisci/i3ipc-python) : `pip install --user i3ipc`
+
+#### Usage ####
+
+Add this to your i3 config:
+
+```
+exec_always --no-startup-id /path/to/script/auto_orientation.py
+```
+
