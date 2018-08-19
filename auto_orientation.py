@@ -15,8 +15,11 @@ def on_window_focus(change, container):
         else:
             focused.command('split vertical')
 
-i3.on('window::focus', on_window_focus)
-i3.main()
+try:
+    i3.on('window::focus', on_window_focus)
+    i3.main()
+finally:
+    i3.main_quit()
 
 
 

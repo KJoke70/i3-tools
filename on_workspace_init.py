@@ -32,6 +32,9 @@ def on_workspace_init(self, e):
         else:
             i3.command('exec %s' % (commands[index]))
 
-i3 = i3ipc.Connection()
-i3.on('workspace::init', on_workspace_init)
-i3.main()
+try:
+    i3 = i3ipc.Connection()
+    i3.on('workspace::init', on_workspace_init)
+    i3.main()
+finally:
+    i3.main_quit()

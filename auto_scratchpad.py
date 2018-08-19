@@ -77,5 +77,8 @@ def on_window_focus(self, e):
 
 
 # listen to focus event
-i3.on('window::focus', on_window_focus)
-i3.main()
+try:
+    i3.on('window::focus', on_window_focus)
+    i3.main()
+finally:
+    i3.main_quit()
