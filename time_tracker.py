@@ -7,9 +7,15 @@ import time
 import configparser
 import i3ipc
 
+#import csv
+import json
+
 import socket #ipc
 import threading
 import subprocess
+
+total_time = 0
+current_time = 0
 
 ## Needs to track
 ##  window::focus
@@ -28,13 +34,15 @@ def main():
     # 3. create notification threads to notify upon time x (specified in config)
     #   - class, instance, name, role, mark have reached time x
     #   - take break, drink, etc (config)
-    #       + every x min (when active for x, TODO DPMS ??)
+    #       + every x min (when active for x, TODO DPMS ??), only start next
+    #           round, after notification was clicked
     #       + specific times
     # 4. count time for currently focused
     # 5. stop counting once focus changes -> change count
     # 6. save count in dictionary
     # 7. backup save every 5 minutes (or set in config)
-    # 8. check
+    # 8. send info to IPC calls # TODO how??
+    #
     try:
         i3 = i3ipc.Connction()
         i3.on("window::focus", on_window_focus)
