@@ -135,3 +135,17 @@ Add this to your i3 config:
 exec_always --no-startup-id /path/to/script/auto_orientation.py
 ```
 
+## focus_outerost_parent.py ##
+A script to focus the outermost parent.
+
+#### Dependencies ####
+
+ * [i3ipc](https://github.com/acrisci/i3ipc-python) : `pip install --user i3ipc`
+
+#### Usage ####
+
+Add this to your i3 config:
+
+```
+bindsym $mod+Up exec --no-startup-id focus_outermost_parent.py
+```
