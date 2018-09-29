@@ -40,6 +40,6 @@ for i in range(counter, 0, -1):
     if len(n) == 0:
         break #exit()?
     else:
-        con2 = n[direction]
+        con2 = n[direction if direction < 0 else 0]
 
 con2.command('focus')
