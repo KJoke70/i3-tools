@@ -149,3 +149,19 @@ Add this to your i3 config:
 ```
 bindsym $mod+Up exec --no-startup-id focus_outermost_parent.py
 ```
+
+## focus_sibling.py ##
+A script to focus a sibling in the next/previous top-level container
+
+#### Dependencies ####
+
+ * [i3ipc](https://github.com/acrisci/i3ipc-python) : `pip install --user i3ipc`
+
+#### Usage ####
+
+Add this to your i3 config:
+
+```
+bindsym $mod+Left exec --no-startup-id focus_sibling.py -1
+bindsym $mod+Right exec --no-startup-id focus_sibling.py 1
+```
