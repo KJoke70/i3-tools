@@ -165,3 +165,15 @@ Add this to your i3 config:
 bindsym $mod+Left exec --no-startup-id focus_sibling.py -1
 bindsym $mod+Right exec --no-startup-id focus_sibling.py 1
 ```
+## focus_or_open.py ##
+A script to either focus an existing window or execute the command.
+
+#### Dependencies ####
+
+ * [i3ipc](https://github.com/acrisci/i3ipc-python) : `pip install --user i3ipc`
+
+#### Usage ####
+
+```
+usage: t.py [-h] [--no-startup-id] command
+```
