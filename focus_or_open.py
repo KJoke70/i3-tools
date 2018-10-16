@@ -25,7 +25,8 @@ def main():
         i3.command(exec_command + command)
         try:
             i3.main()
-        except:
+        except e:
+            print(e)
             i3.main_quit()
 
 
@@ -41,9 +42,8 @@ def check_if_exists_and_focus(tree):
     return False
 
 def on_window_new(a, b):
-    if check_if_exists_and_focus(program, b.container):
+    if check_if_exists_and_focus(a.get_tree()):
         a.main_quit()
-
 
 if __name__ == '__main__':
     main()
