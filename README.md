@@ -177,3 +177,10 @@ A script to either focus an existing window or execute the command.
 ```
 usage: t.py [-h] [--no-startup-id] command
 ```
+
+For example:
+
+```
+i3-input -F 'exec --no-startup-id ~/.scripts/i3-scripts/focus_or_open.py %s' -P 'Program: '
+```
+
