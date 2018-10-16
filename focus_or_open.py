@@ -25,8 +25,7 @@ def main():
         i3.command(exec_command + command)
         try:
             i3.main()
-        except e:
-            print(e)
+        except:
             i3.main_quit()
 
 
