@@ -18,6 +18,8 @@ usage).
  * -h : help
  * --times/-t N: rotate N times
  * --no-multimonitor/-m: disables multimonitor support
+ * --enable-floating/-f: explicitly don't ignore floating windows. Causes unexpected
+     behavior.
 
 #### Examples ####
 

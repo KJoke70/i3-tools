@@ -3,11 +3,16 @@
 import i3ipc
 import argparse
 
-parser = argparse.ArgumentParser(description='rotate clockwise or counterclockwise')
-parser.add_argument('direction', type=int, help='0 = clockwise, 1 = counterclockwise')
-parser.add_argument('--times', '-t', type=int, default=1, help='how often to rotate')
+parser = argparse.ArgumentParser(
+                    description='rotate clockwise or counterclockwise.')
+parser.add_argument('direction', type=int,
+                    help='0 = clockwise, 1 = counterclockwise.')
+parser.add_argument('--times', '-t', type=int, default=1,
+                    help='how often to rotate.')
 parser.add_argument('--no-multimonitor', '-m', action='store_true',
-        help='disables multi-monitor support')
+        help='disables multi-monitor support.')
+parser.add_argument('--enable-floating', '-f', action='store_true',
+        help='explicitly allow floating windows. May behave unexpectedly.')
 
 args = parser.parse_args()
 
@@ -43,6 +48,15 @@ else:
             else:
                 leaves += ws.leaves()
 
+if not args.enable_floating:
+    to_remove = list()
+    for i in range(len(leaves)):
+        if 'on' in leaves[i].floating:
+            to_remove.append(i)
+    for i in range(len(to_remove)-1, -1, -1):
+        del leaves[to_remove[i]]
+
+
 number_of_leaves = len(leaves)
 rotations = args.times % number_of_leaves
 
@@ -73,14 +87,20 @@ if args.direction == 0:
         for i in range(rotations):
             old_focus, new_comm = clock()
             command += new_comm
-        command += "[con_id=%s] focus;" % ( leaves[(old_focus - rotations) %
-            number_of_leaves].id )
+        if not args.enable_floating and 'on' in focused.floating:
+            command += "[con_id=%s] focus;" % ( focused.id )
+        else:
+            command += "[con_id=%s] focus;" % ( leaves[(old_focus - rotations) %
+                number_of_leaves].id )
         i3.command(command)
 elif args.direction == 1:
     if rotations > 0:
         for i in range(rotations):
             old_focus, new_comm = counterclock()
             command += new_comm
-        command += "[con_id=%s] focus;" % ( leaves[(old_focus + rotations) %
-            number_of_leaves].id )
+        if not args.enable_floating and 'on' in focused.floating:
+            command += "[con_id=%s] focus;" % ( focused.id )
+        else:
+            command += "[con_id=%s] focus;" % ( leaves[(old_focus + rotations) %
+                number_of_leaves].id )
         i3.command(command)
