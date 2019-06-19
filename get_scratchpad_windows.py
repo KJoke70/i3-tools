@@ -11,7 +11,7 @@ windows = i3.get_tree().scratchpad().leaves()
 d = dict()
 
 for w in windows:
-    d["[%s] %s" % (w.window_instance, w.name)] = w.id
+    d["[%s] %s" % (w.window_class, w.name)] = w.id
 
 keys = [x for x in d.keys()]
 
@@ -28,7 +28,7 @@ try:
     key = output.decode('utf-8').rstrip()
     value = d[key]
 
-    i3.command("[con_id='%s'] scratchpad show; move position center" % value)
+    i3.command("[con_id='%s'] scratchpad show; move position center; floating toggle" % value)
 except:
     pass
 
