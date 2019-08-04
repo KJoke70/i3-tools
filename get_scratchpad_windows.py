@@ -13,11 +13,11 @@ d = dict()
 for w in windows:
     d["[%s] %s" % (w.window_class, w.name)] = w.id
 
-keys = [x for x in d.keys()]
-
 s = ""
 for x in d.keys():
     s += x + "\n"
+
+s = s.rstrip()
 
 
 try:
@@ -31,5 +31,4 @@ try:
     i3.command("[con_id='%s'] scratchpad show; move position center; floating toggle" % value)
 except:
     pass
-
 
